@@ -1,0 +1,22 @@
+<div class="container">
+<h1>New Game</h1>
+<% @letters.each do |letter|%>
+  <div class="list">
+    <ul>
+      <div class="letter">
+        <li><%= letter.upcase %></li>
+      </div>
+    </ul>
+    </div>
+<% end %>
+
+  <div class="form-tutur">
+    <form action="/score" method="post" data-turbo="false">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <label for="suggestedWord">What is the longest word you can find ? </label>
+      <input type="text" name="suggestedWord" id="word" class="submitText" required />
+      <input type="text" name="listOfLetters" class="dispNone" value=<%=@strLetter%>/>
+      <input type="submit" value="Play" class="btn">
+    </form>
+  </div>
+</div>
